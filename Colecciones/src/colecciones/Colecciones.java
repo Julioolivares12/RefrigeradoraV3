@@ -7,17 +7,76 @@ package colecciones;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.JLabel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  *
  * @author julio
  */
-public class Colecciones {
+public class Colecciones extends JFrame {
 
-    /**
-     * @param args the command line arguments
-     */
+    private JButton btnInsertarText,btnSalir;
+    private JTextField txttexto;
+    private JLabel lbltexto;
+    
     public static void main(String[] args) {
         // TODO code application logic here
+        Colecciones colecciones= new Colecciones();
+        colecciones.mostrarEventoDemo();
+    }
+    private Colecciones(){
+        setSize(800,600);
+        setTitle("programa frases");
+        inicializarComponentes();
+        
+    }
+    
+    private void inicializarComponentes(){
+        btnInsertarText= new JButton();
+        btnSalir = new JButton();
+        txttexto= new JTextField();
+        lbltexto = new  JLabel();
+        
+        getContentPane().setLayout(null);
+        
+        addWindowListener(new java.awt.event.WindowAdapter() {
+        public void windowClosing(java.awt.event.WindowEvent evt){
+            System.exit(0);
+        }
+        });
+        lbltexto.setText("escribe una frase");
+        getContentPane().add(lbltexto);
+        lbltexto.setBounds(25,15,100,25);
+        
+        txttexto.setText("");
+        getContentPane().add(txttexto);
+        txttexto.setBounds(140,15,50,25);
+        
+        btnInsertarText.setText("insertar");
+        getContentPane().add(btnInsertarText);
+        btnInsertarText.setBounds(30,60,100,30);
+        btnInsertarText.addActionListener(new MostrarTexto());
+        
+        btnSalir.setText("salir");
+        getContentPane().add(btnSalir);
+        btnSalir.setBounds(150,60,100,30);
+        btnSalir.addActionListener(new Salir());
+        
+        getRootPane().setDefaultButton(btnInsertarText);
+    }
+    static class MostrarTexto implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            //aqui va todo el codigo para mostrar el texto
+        }
+    }
+    static class Salir implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            System.exit(0);
+        }
+    }
+    private void mostrarEventoDemo(){
+        setVisible(true);
     }
     
 }
