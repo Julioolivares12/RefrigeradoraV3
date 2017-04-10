@@ -51,7 +51,7 @@ public class Colecciones extends JFrame {
         
         txttexto.setText("");
         getContentPane().add(txttexto);
-        txttexto.setBounds(140,15,50,25);
+        txttexto.setBounds(140,15,500,25);
         
         btnInsertarText.setText("insertar");
         getContentPane().add(btnInsertarText);
@@ -68,6 +68,7 @@ public class Colecciones extends JFrame {
     static class MostrarTexto implements ActionListener{
         public void actionPerformed(ActionEvent e){
             //aqui va todo el codigo para mostrar el texto
+          
         }
     }
     static class Salir implements ActionListener{
