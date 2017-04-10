@@ -56,7 +56,11 @@ public class Colecciones extends JFrame {
         btnInsertarText.setText("insertar");
         getContentPane().add(btnInsertarText);
         btnInsertarText.setBounds(30,60,100,30);
-        btnInsertarText.addActionListener(new MostrarTexto());
+        btnInsertarText.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                //aqui va el codigo de para el proyecto
+            }
+        });
         
         btnSalir.setText("salir");
         getContentPane().add(btnSalir);
@@ -68,6 +72,7 @@ public class Colecciones extends JFrame {
     static class MostrarTexto implements ActionListener{
         public void actionPerformed(ActionEvent e){
             //aqui va todo el codigo para mostrar el texto
+            
           
         }
     }
