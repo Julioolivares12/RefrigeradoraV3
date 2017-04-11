@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
+import javax.swing.JTextArea;
+import java.util.StringTokenizer;
 /**
  *
  * @author julio
@@ -20,6 +22,8 @@ public class Colecciones extends JFrame {
     private JButton btnInsertarText,btnSalir;
     private JTextField txttexto;
     private JLabel lbltexto;
+    private JTextArea txtMuestraDatos;
+    Vector<String> datos = new Vector<>();
     
     public static void main(String[] args) {
         // TODO code application logic here
@@ -38,6 +42,8 @@ public class Colecciones extends JFrame {
         btnSalir = new JButton();
         txttexto= new JTextField();
         lbltexto = new  JLabel();
+        txtMuestraDatos = new JTextArea();
+        
         
         getContentPane().setLayout(null);
         
@@ -48,33 +54,45 @@ public class Colecciones extends JFrame {
         });
         lbltexto.setText("escribe una frase");
         getContentPane().add(lbltexto);
-        lbltexto.setBounds(25,15,100,25);
+        lbltexto.setBounds(25,15,400,25);
         
         txttexto.setText("");
         getContentPane().add(txttexto);
-        txttexto.setBounds(140,15,500,25);
+        txttexto.setBounds(140,40,500,25);
+        
+        txtMuestraDatos.setText("");
+        getContentPane().add(txtMuestraDatos);
+        txtMuestraDatos.setBounds(150,150, 600, 400);
         
         btnInsertarText.setText("insertar");
         getContentPane().add(btnInsertarText);
-        btnInsertarText.setBounds(30,60,100,30);
+        btnInsertarText.setBounds(30,70,100,30);
         btnInsertarText.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                //aqui va el codigo de para el proyecto
+                llenarVector();
             }
         });
         
         btnSalir.setText("salir");
         getContentPane().add(btnSalir);
-        btnSalir.setBounds(150,60,100,30);
+        btnSalir.setBounds(150,70,100,30);
         btnSalir.addActionListener(new Salir());
         
         getRootPane().setDefaultButton(btnInsertarText);
     }
-    static class MostrarTexto implements ActionListener{
-        public void actionPerformed(ActionEvent e){
-            //aqui va todo el codigo para mostrar el texto
+   
+    public void llenarVector(){
+        String texto = txttexto.getText().toString();
+        
+        StringTokenizer str = new StringTokenizer(texto);
+        Vector<String> palabras = new Vector<>();
+       // palabras.add(texto);
+        while(str.hasMoreTokens()){
+            palabras.add(str.nextToken());
             
-          
+        }
+        while(str.hasMoreTokens()){
+            
         }
     }
     static class Salir implements ActionListener{
