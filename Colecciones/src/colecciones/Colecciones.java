@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Enumeration;
 import java.util.Vector;
 import javax.swing.JTextArea;
 import java.util.StringTokenizer;
@@ -102,7 +103,9 @@ public class Colecciones extends JFrame {
                     
                 }
             }*/
-          if(palabras1.get(str)==str.nextToken())
+          Enumeration<String> e = palabras1.keys();
+          while(e.hasMoreElements()){
+              if(e.nextElement()==str.nextToken())
           {
               repetidas.add(str.nextToken());
           }
@@ -110,6 +113,8 @@ public class Colecciones extends JFrame {
           {
               sinRepetir.add(str.nextToken());
           }
+          }
+          
         }
         txtMuestraDatos.setText("palabras:"+"\n"+"pabras repetidas:"+repetidas+" "+"sin repetir:"+sinRepetir);
     }
