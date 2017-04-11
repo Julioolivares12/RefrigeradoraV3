@@ -65,10 +65,6 @@ public class Colecciones extends JFrame {
         getContentPane().add(txttexto);
         txttexto.setBounds(140,40,500,25);
         
-       /* txtMuestraDatos.setText("");
-        getContentPane().add(txtMuestraDatos);
-        txtMuestraDatos.setBounds(150,150, 600, 400);
-        */
         //etiqueta de repetidas
         lblrepetidas.setText("repetidas");
         getContentPane().add(lblrepetidas);
@@ -135,8 +131,6 @@ public class Colecciones extends JFrame {
                  sinRepetir.addElement(e.nextElement());
              }
          }
-         
-        
         txtsinRepetir.setText("\n"+sinRepetir);
         txtrepetidas.setText("\n"+repetidas);
     }
