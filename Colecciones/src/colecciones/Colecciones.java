@@ -87,6 +87,8 @@ public class Colecciones extends JFrame {
         
         StringTokenizer str = new StringTokenizer(texto);
         Vector<String> palabras = new Vector<>();
+        Vector<String> repetidas = new Vector<>();
+        Vector<String> sinRepetir = new Vector<>();
         Hashtable palabras1 = new Hashtable();
         
         
@@ -100,8 +102,15 @@ public class Colecciones extends JFrame {
                     
                 }
             }*/
+          if(palabras1.get(str)==str.nextToken()){
+              repetidas.add(str.nextToken());
+          }
+          else
+          {
+              sinRepetir.add(str.nextToken());
+          }
         }
-        txtMuestraDatos.setText(palabras1.toString()+"\n");
+        txtMuestraDatos.setText("palabras:"+"\n"+"pabras repetidas:"+repetidas+" "+"sin repetir:"+sinRepetir);
     }
     static class Salir implements ActionListener{
         public void actionPerformed(ActionEvent e){
