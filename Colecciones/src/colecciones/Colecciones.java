@@ -91,9 +91,7 @@ public class Colecciones extends JFrame {
             palabras.add(str.nextToken());
             
         }
-        while(str.hasMoreTokens()){
-            
-        }
+        txtMuestraDatos.setText(palabras.toString());
     }
     static class Salir implements ActionListener{
         public void actionPerformed(ActionEvent e){
