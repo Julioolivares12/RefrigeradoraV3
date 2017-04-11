@@ -23,8 +23,8 @@ public class Colecciones extends JFrame {
 
     private JButton btnInsertarText,btnSalir;
     private JTextField txttexto;
-    private JLabel lbltexto;
-    private JTextArea txtMuestraDatos;
+    private JLabel lbltexto,lblrepetidas,lblsinRepetir;
+    private JTextArea txtMuestraDatos,txtrepetidas,txtsinRepetir;
     Vector<String> datos = new Vector<>();
     
     public static void main(String[] args) {
@@ -45,7 +45,10 @@ public class Colecciones extends JFrame {
         txttexto= new JTextField();
         lbltexto = new  JLabel();
         txtMuestraDatos = new JTextArea();
-        
+        txtrepetidas= new JTextArea();
+        txtsinRepetir = new JTextArea();
+        lblrepetidas = new JLabel();
+        lblsinRepetir = new JLabel();
         
         getContentPane().setLayout(null);
         
@@ -62,10 +65,31 @@ public class Colecciones extends JFrame {
         getContentPane().add(txttexto);
         txttexto.setBounds(140,40,500,25);
         
-        txtMuestraDatos.setText("");
+       /* txtMuestraDatos.setText("");
         getContentPane().add(txtMuestraDatos);
         txtMuestraDatos.setBounds(150,150, 600, 400);
+        */
+        //etiqueta de repetidas
+        lblrepetidas.setText("repetidas");
+        getContentPane().add(lblrepetidas);
+        lblrepetidas.setBounds(350, 80, 100,100 );
         
+        // muestra las palabras repetidas
+        txtrepetidas.setText("");
+        getContentPane().add(txtrepetidas);
+        txtrepetidas.setBounds(350, 150, 300, 200);
+        
+        // etiqueta de palabras sin repetir
+        lblsinRepetir.setText("sin repetir");
+        getContentPane().add(lblsinRepetir);
+        lblsinRepetir.setBounds(40, 80, 100, 100);
+        
+        //muesta las palabras que no estan repetidas
+        txtsinRepetir.setText("");
+        getContentPane().add(txtsinRepetir);
+        txtsinRepetir.setBounds(40, 150, 300, 200);
+        
+        //funciones de los botones
         btnInsertarText.setText("insertar");
         getContentPane().add(btnInsertarText);
         btnInsertarText.setBounds(30,70,100,30);
@@ -85,7 +109,7 @@ public class Colecciones extends JFrame {
         String texto = txttexto.getText();
         
         StringTokenizer str = new StringTokenizer(texto);
-       // Vector<String> palabras = new Vector<>();
+        Vector<String> palabras = new Vector<>();
         Vector<String> repetidas = new Vector<>();
         Vector<String> sinRepetir = new Vector<>();
         Hashtable palabras1 = new Hashtable();
@@ -97,17 +121,24 @@ public class Colecciones extends JFrame {
            palabras1.put(str.nextToken(),"plabra");
         }
          Enumeration<String> e = palabras1.keys();
-          while(e.hasMoreElements()){
-              if(e.nextElement().equals(str.nextToken()))
-          {
-              repetidas.add(str.nextToken());
-          }
-          else
-          {
-              sinRepetir.add(str.nextToken());
-          }
-          }
-        txtMuestraDatos.setText("palabras:"+"\n"+"pabras repetidas:"+repetidas+" "+"sin repetir:"+sinRepetir);
+        // String [] datos;
+         while(e.hasMoreElements()){
+             palabras.add(e.nextElement());
+         }
+         for(int i=0;i<=palabras.size();i++){
+             if(palabras.get(i)==e.nextElement()){
+                // repetidas=palabras.get(i);
+                repetidas.addElement(e.nextElement());
+             }
+             else
+             {
+                 sinRepetir.addElement(e.nextElement());
+             }
+         }
+         
+        
+        txtsinRepetir.setText("\n"+sinRepetir);
+        txtrepetidas.setText("\n"+repetidas);
     }
     static class Salir implements ActionListener{
         @Override
