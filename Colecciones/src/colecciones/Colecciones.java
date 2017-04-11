@@ -101,7 +101,7 @@ public class Colecciones extends JFrame {
                 }
             }*/
         }
-        txtMuestraDatos.setText(palabras1.toString());
+        txtMuestraDatos.setText(palabras1.toString()+"\n");
     }
     static class Salir implements ActionListener{
         public void actionPerformed(ActionEvent e){
