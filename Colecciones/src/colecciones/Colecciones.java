@@ -86,7 +86,7 @@ public class Colecciones extends JFrame {
         String texto = txttexto.getText().toString();
         
         StringTokenizer str = new StringTokenizer(texto);
-        Vector<String> palabras = new Vector<>();
+       // Vector<String> palabras = new Vector<>();
         Vector<String> repetidas = new Vector<>();
         Vector<String> sinRepetir = new Vector<>();
         Hashtable palabras1 = new Hashtable();
