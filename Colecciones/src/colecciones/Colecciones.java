@@ -122,7 +122,7 @@ public class Colecciones extends JFrame {
              palabras.add(e.nextElement());
          }
          for(int i=0;i<=palabras.size();i++){
-             if(palabras.get(i)==e.nextElement()){
+             if(palabras.get(i).equals(e.nextElement())){
                 // repetidas=palabras.get(i);
                 repetidas.addElement(e.nextElement());
              }
