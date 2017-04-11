@@ -69,10 +69,8 @@ public class Colecciones extends JFrame {
         btnInsertarText.setText("insertar");
         getContentPane().add(btnInsertarText);
         btnInsertarText.setBounds(30,70,100,30);
-        btnInsertarText.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                verificarPalabras();
-            }
+        btnInsertarText.addActionListener((ActionEvent e) -> {
+            verificarPalabras();
         });
         
         btnSalir.setText("salir");
@@ -84,7 +82,7 @@ public class Colecciones extends JFrame {
     }
    
     public void verificarPalabras(){
-        String texto = txttexto.getText().toString();
+        String texto = txttexto.getText();
         
         StringTokenizer str = new StringTokenizer(texto);
        // Vector<String> palabras = new Vector<>();
@@ -97,15 +95,10 @@ public class Colecciones extends JFrame {
         while(str.hasMoreTokens()){
            // palabras.add(str.nextToken());
            palabras1.put(str.nextToken(),"plabra");
-          /*  for(int i=0;i<=palabras.size();i++){
-                palabras1.put(str,i);
-                if(palabras1.get(i)==){
-                    
-                }
-            }*/
-          Enumeration<String> e = palabras1.keys();
+        }
+         Enumeration<String> e = palabras1.keys();
           while(e.hasMoreElements()){
-              if(e.nextElement()==str.nextToken())
+              if(e.nextElement().equals(str.nextToken()))
           {
               repetidas.add(str.nextToken());
           }
@@ -114,11 +107,10 @@ public class Colecciones extends JFrame {
               sinRepetir.add(str.nextToken());
           }
           }
-          
-        }
         txtMuestraDatos.setText("palabras:"+"\n"+"pabras repetidas:"+repetidas+" "+"sin repetir:"+sinRepetir);
     }
     static class Salir implements ActionListener{
+        @Override
         public void actionPerformed(ActionEvent e){
             System.exit(0);
         }
