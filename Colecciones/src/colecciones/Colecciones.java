@@ -70,7 +70,7 @@ public class Colecciones extends JFrame {
         btnInsertarText.setBounds(30,70,100,30);
         btnInsertarText.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                llenarVector();
+                verificarPalabras();
             }
         });
         
@@ -82,7 +82,7 @@ public class Colecciones extends JFrame {
         getRootPane().setDefaultButton(btnInsertarText);
     }
    
-    public void llenarVector(){
+    public void verificarPalabras(){
         String texto = txttexto.getText().toString();
         
         StringTokenizer str = new StringTokenizer(texto);
@@ -102,7 +102,8 @@ public class Colecciones extends JFrame {
                     
                 }
             }*/
-          if(palabras1.get(str)==str.nextToken()){
+          if(palabras1.get(str)==str.nextToken())
+          {
               repetidas.add(str.nextToken());
           }
           else
