@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.Vector;
 import javax.swing.JTextArea;
 import java.util.StringTokenizer;
+import java.util.Hashtable;
 /**
  *
  * @author julio
@@ -86,12 +87,21 @@ public class Colecciones extends JFrame {
         
         StringTokenizer str = new StringTokenizer(texto);
         Vector<String> palabras = new Vector<>();
+        Hashtable palabras1 = new Hashtable();
+        
+        
        // palabras.add(texto);
         while(str.hasMoreTokens()){
-            palabras.add(str.nextToken());
-            
+           // palabras.add(str.nextToken());
+           palabras1.put(str.nextToken(),"plabra");
+          /*  for(int i=0;i<=palabras.size();i++){
+                palabras1.put(str,i);
+                if(palabras1.get(i)==){
+                    
+                }
+            }*/
         }
-        txtMuestraDatos.setText(palabras.toString());
+        txtMuestraDatos.setText(palabras1.toString());
     }
     static class Salir implements ActionListener{
         public void actionPerformed(ActionEvent e){
