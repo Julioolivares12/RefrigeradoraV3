@@ -108,17 +108,22 @@ public class Colecciones extends JFrame {
         Vector<String> palabras = new Vector<>();
         Vector<String> repetidas = new Vector<>();
         Vector<String> sinRepetir = new Vector<>();
-        Hashtable palabras1 = new Hashtable();
+        Hashtable<String,String> palabras1 = new Hashtable<String,String>();
         
         
        // palabras.add(texto);
         while(str.hasMoreTokens()){
            // palabras.add(str.nextToken());
            palabras1.put(str.nextToken(),"plabra");
+           Enumeration<String> e = palabras1.keys();
+           
+           if(palabras1.keys().equals(str.nextToken())){
+               
+           }
         }
-         Enumeration<String> e = palabras1.keys();
+         
         // String [] datos;
-         while(e.hasMoreElements()){
+        /* while(e.hasMoreElements()){
              palabras.add(e.nextElement());
          }
          for(int i=0;i<=palabras.size();i++){
@@ -130,7 +135,7 @@ public class Colecciones extends JFrame {
              {
                  sinRepetir.addElement(e.nextElement());
              }
-         }
+         }*/
         txtsinRepetir.setText("\n"+sinRepetir);
         txtrepetidas.setText("\n"+repetidas);
     }
