@@ -118,7 +118,11 @@ public class Colecciones extends JFrame {
            Enumeration<String> e = palabras1.keys();
            
            if(palabras1.keys().equals(str.nextToken())){
-               
+               repetidas.add(str.nextToken());
+           }
+           else
+           {
+               sinRepetir.add(str.nextToken());
            }
         }
          
